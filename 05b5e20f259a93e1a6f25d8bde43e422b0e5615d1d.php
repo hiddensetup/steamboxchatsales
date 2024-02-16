@@ -64,7 +64,7 @@ function sendDataToZapier($userData)
 {
     // Set up cURL to send a POST request to Zapier webhook URL
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, ''); // Replace with your Zapier webhook URL
+    curl_setopt($ch, CURLOPT_URL, 'https://hooks.zapier.com/hooks/catch/16554718/3gicqa6/'); // Replace with your Zapier webhook URL
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($userData));
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
