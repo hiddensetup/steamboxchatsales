@@ -60,10 +60,11 @@ if (file_put_contents($jsonFilePath, $jsonData)) {
 }
 
 // Function to send data to Zapier webhook
-function sendDataToZapier($userData) {
+function sendDataToZapier($userData)
+{
     // Set up cURL to send a POST request to Zapier webhook URL
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'https://hooks.zapier.com/hooks/catch/16554718/3gicqa6/'); // Replace with your Zapier webhook URL
+    curl_setopt($ch, CURLOPT_URL, ''); // Replace with your Zapier webhook URL
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($userData));
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
@@ -77,16 +78,17 @@ function sendDataToZapier($userData) {
 }
 
 // Function to display Bootstrap alert for errors
-function displayError($errorMessage) {
+function displayError($errorMessage)
+{
     // Redirect to index.html with an error message
     header('Location: index.html?error=' . urlencode($errorMessage));
     exit();
 }
 
 // Function to display Bootstrap alert for duplicate content and redirect
-function displayDuplicateAlertAndRedirect() {
+function displayDuplicateAlertAndRedirect()
+{
     // Redirect to index.html with a duplicate content message
     header('Location: index.html?duplicate=1');
     exit();
 }
-?>
