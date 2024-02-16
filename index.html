@@ -23,7 +23,8 @@
     <link rel="icon" href="steambox.png" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <script type="application/ld+json">
 {
   "@context": "http://schema.org",
@@ -481,8 +482,8 @@
     <footer class="bg-black text-light text-center pt-3 pb-4">
         <div class="mx-5 mt-2">
             <span class="text-light small">Steamboxchat ofrece conexión de API para WhatsApp - Multiagente listo para
-                probar gratis
-                <span class="text-light">&copy; 2023 steamboxchat Messaging Platform</span>
+                probar gratis</span>
+            <span class="text-light">&copy; 2023 steamboxchat Messaging Platform</span>
 
         </div>
     </footer>
@@ -503,31 +504,70 @@
             </div>
         </div>
     </div>
-    </div>
     <script>
+
+        function checkUrlParameters() {
+            const urlParams = new URLSearchParams(window.location.hash.substring(1));
+            const modalParam = urlParams.get('modal');
+            if (modalParam === 'registrationModal') {
+                $('#registrationModal').modal('show');
+            }
+        }
+
+        $(document).ready(function () {
+            checkUrlParameters();
+        });
+
+        function displayAlert() {
+            let e = new URLSearchParams(window.location.search);
+            if (e.has("success")) {
+                document.getElementById("successAlert").style.display = "block";
+                setTimeout(function () {
+                    window.location.href = "205b5e20f259a93e1a6f25d8bde43e422b0e5615d1d.php"
+                }, 1500);
+            } else if (e.has("error")) {
+                let l = decodeURIComponent(e.get("error"));
+                document.getElementById("errorAlert").innerText = "Error: " + l;
+                document.getElementById("errorAlert").style.display = "block";
+            } else if (e.has("duplicate")) {
+                document.getElementById("duplicateAlert").style.display = "block";
+            }
+        }
+
+        displayAlert();
+
         function updateRealTimeDate() {
             let now = new Date();
             let options = {
-                hour: "numeric",
-                minute: "numeric",
-                timeZoneName: "short",
+                hour: 'numeric',
+                minute: 'numeric',
+                timeZoneName: 'short'
             };
-            let formattedDate = now.toLocaleTimeString("en-US", options);
-            document.getElementById("realTimeDate").textContent = formattedDate;
+            let formattedDate = now.toLocaleTimeString('en-US', options);
+            document.getElementById('realTimeDate').textContent = formattedDate;
         }
 
         setInterval(updateRealTimeDate, 1000);
 
         function updateNameDisplay() {
-            let enteredName = document.getElementById("name").value + ",";
-            document.getElementById("getName").textContent = enteredName;
+            let enteredName = document.getElementById('name').value + ',';
+            document.getElementById('getName').textContent = enteredName;
         }
 
         updateRealTimeDate();
+
+        document.addEventListener("DOMContentLoaded", function () {
+            function cleanAndValidateWhatsAppInput() {
+                let inputElement = document.querySelector("input[name='whatsapp']");
+                let inputValue = inputElement.value;
+                let cleanedValue = inputValue.replace(/[\s-<%`'()#]/g, "");
+                cleanedValue = cleanedValue.replace(/[^+\d]/g, "");
+                inputElement.value = cleanedValue;
+            }
+            document.querySelector("input[name='whatsapp']").addEventListener("input", cleanAndValidateWhatsAppInput);
+        });
     </script>
-    <link href="assets/script.js">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
