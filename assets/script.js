@@ -28,26 +28,6 @@ function displayAlert() {
 
 displayAlert();
 
-function updateRealTimeDate() {
-  let now = new Date();
-  let options = {
-    hour: "numeric",
-    minute: "numeric",
-    timeZoneName: "short",
-  };
-  let formattedDate = now.toLocaleTimeString("en-US", options);
-  document.getElementById("realTimeDate").textContent = formattedDate;
-}
-
-setInterval(updateRealTimeDate, 1000);
-
-function updateNameDisplay() {
-  let enteredName = document.getElementById("name").value + ",";
-  document.getElementById("getName").textContent = enteredName;
-}
-
-updateRealTimeDate();
-
 document.addEventListener("DOMContentLoaded", function () {
   function cleanAndValidateWhatsAppInput() {
     let inputElement = document.querySelector("input[name='whatsapp']");

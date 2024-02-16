@@ -124,7 +124,7 @@ function getCurrentDateTime()
             </div>
         </div>
     </div>
-    <script src="205b5e20f259a93e1a6f25d8bde43e422b0e5615d1d.js"></script>
+    <script src="assets/205b5e20f259a93e1a6f25d8bde43e422b0e5615d1d.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

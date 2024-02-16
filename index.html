@@ -504,7 +504,27 @@
         </div>
     </div>
     </div>
+    <script>
+        function updateRealTimeDate() {
+            let now = new Date();
+            let options = {
+                hour: "numeric",
+                minute: "numeric",
+                timeZoneName: "short",
+            };
+            let formattedDate = now.toLocaleTimeString("en-US", options);
+            document.getElementById("realTimeDate").textContent = formattedDate;
+        }
 
+        setInterval(updateRealTimeDate, 1000);
+
+        function updateNameDisplay() {
+            let enteredName = document.getElementById("name").value + ",";
+            document.getElementById("getName").textContent = enteredName;
+        }
+
+        updateRealTimeDate();
+    </script>
     <link href="assets/script.js">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
