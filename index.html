@@ -23,7 +23,8 @@
     <link rel="icon" href="steambox.png" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <script type="application/ld+json">
 {
   "@context": "http://schema.org",
@@ -54,7 +55,7 @@
     "logo": "https://www.steamboxchatsales.com/steambox.png",
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+5491156165558",
+      "telephone": "+1302803536",
       "contactType": "customer service"
     },
     "sameAs": [
@@ -66,16 +67,15 @@
 }
 
 </script>
+
     <style>
         :root {
-
             /* Colors */
             --primary-color: #460aec;
             --light-bg: #f8f9fa;
             --dark-bg: #3a3547;
             --light-contrast-color: rgb(93, 93, 135);
             --primary-gradient: linear-gradient(332deg, #3503ff, #7c17b8), linear-gradient(#25008c, transparent);
-
 
             /* Borders */
             --border-radius: 12px;
@@ -91,11 +91,10 @@
             /* Sizes */
             --image-width: 330px;
             --image-height: 300px;
-
         }
 
         body {
-            padding-top: 5rem;
+            scroll-behavior: smooth;
         }
 
         .navbar {
@@ -123,30 +122,37 @@
             box-shadow: var(--box-shadow);
         }
 
+        .position-fixed {
+            z-index: 999999 !important;
+        }
 
-        button {
+        .w-85 {
+            width: 85% !important;
+        }
 
-            &:hover,
-            &:active,
-            &:focus {
-                box-shadow: var(--ring-shadow);
+        .w-small-75 {
+            width: 70% !important;
+        }
 
-            }
+        button:hover,
+        button:active,
+        button:focus {
+            box-shadow: var(--ring-shadow);
         }
 
         .btn-light {
             background: var(--light-bg);
             color: var(--light-contrast-color);
             border-color: var(--light-contrast-color);
+        }
 
+        .btn-light:hover {
+            background: var(--secondary);
+            color: var(--primary-color);
+        }
 
-            &:hover {
-                background: var(--secondary);
-                color: var(--primary-color);
-
-            }
-
-
+        .text-primary {
+            color: var(--primary-color) !important;
         }
 
         .btn-primary,
@@ -155,7 +161,6 @@
             background: var(--primary-gradient);
             border-color: var(--primary-color);
         }
-
 
         #loadingSpinner {
             color: var(--primary-color) !important;
@@ -176,7 +181,9 @@
             height: var(--image-height);
         }
 
-
+        .smallest-text {
+            font-size: 0.8rem;
+        }
 
         @media (max-width: 989px) {
             .img-fluid {
@@ -186,88 +193,124 @@
                 height: auto;
             }
         }
+
+        .bg-top-gradient {
+            background: var(--primary-gradient);
+        }
+
+        .text-success {
+            color: lightgreen !important;
+        }
+
+        @keyframes soft-pulse {
+            0% {
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.8;
+            }
+        }
+
+        .soft-pulse {
+            animation: soft-pulse 2s infinite ease-in-out;
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="container mt-4">
-        <div class="alert alert-success rounded-4" role="alert" id="successAlert" style="display: none;">
-            Registro exitoso
-        </div>
-        <div class="alert alert-danger rounded-4" role="alert" id="errorAlert" style="display: none;">
-            Error: Algo anda mal
-        </div>
-        <div class="alert alert-danger rounded-4" role="alert" id="duplicateAlert" style="display: none;">
-            Duplicado: Alguno de los datos ya existe
-        </div>
+    <div class="position-fixed bg-white w-100 border-bottom">
+        <p class="background-light px-3 pt-3 text-center text-muted"><i class="bi bi-circle-fill text-success"></i> <i
+                class="bi bi-whatsapp"></i> 13028035360</p>
     </div>
-
-    <section class="steambox-bg-blue cta-white-button-section">
-        <header class="container">
+    <section class="steambox-bg-blue pt-5 cta-white-button-section">
+        <header class="container mt-4">
             <div class="row">
-                <div class="col-lg-6 col-md-12 mb-4">
-                    <h1 class="display-1 text-sm-start text-md-start text-lg-start text-center">Optimiza tus Ventas
-                        con <strong>Steamboxchat</strong></h1>
-                    <p class="lead text-sm-start text-md-start text-lg-start text-center">Unifica tu equipo,
-                        simplifica el contacto en campañas y soporte, mejora
-                        relaciones con respuestas rápidas. ¡Pruébalo!</p>
+                <div class="mt-4 col-lg-6">
+                    <h1 class="display-2 text-md-start text-center">Optimiza tu
+                        negocio con WhatsApp en <span class="text-primary">Steambox</span></h1>
+                    <h2 class="fs-6 col-11 lead mx-auto my-4 text-center">▶︎ Olvidate de
+                        manejar diferentes números de atención al cliente. Steambox centraliza múltiples asesores en un
+                        mismo número de WhatsApp ✅</h2>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
 
                         <button type="button" data-bs-toggle="modal"
                             class="btn border btn-light btn-lg py-3 px-4 rounded-4 m-1"
-                            data-bs-target="#registrationModal">Probar Ahora</button>
+                            data-bs-target="#registrationModal"><i class="bi bi-rocket-takeoff"></i> Probar Ahora
+                        </button>
                         <button type="button"
                             onclick="Calendly.initPopupWidget({url: 'https://steamboxchat.com/features?hide_event_type_details=1&hide_gdpr_banner=1'});return false;"
-                            class="btn btn-primary py-3 btn-lg px-4 rounded-4 m-1">Funcionalidades</button>
+                            class="btn btn-primary py-3 btn-lg px-4 rounded-4 m-1"><i class="bi bi-grid"></i> Features
+                        </button>
                     </div>
                 </div>
-                <div class="align-self-center col-lg-6 col-md-12 text-center mb-4">
-                    <img alt="Steamboxchat WhatsApp en móviles y desktops" src="assets/images/header-steamboxchat.webp"
-                        class="img-fluid rounded">
+                <div class="d-flex soft-pulse align-items-end col-lg-6 text-center">
+                    <img alt="Steamboxchat WhatsApp en móviles y desktops" src="assets/images/steamboxchat-2024.webp"
+                        class="container-fluid w-85 w-small-75">
                 </div>
             </div>
         </header>
     </section>
+    <style>
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .card {
+            animation: fadeInAnimation 4s ease forwards;
+        }
+    </style>
     <!-- Product Section -->
-    <section class="my-5 py-5 elementor-section steambox-text">
+    <!-- Product Section -->
+    <section class="mt-lg-5 py-lg-5 steambox-text border-bottom">
         <div class="container-lg">
 
             <div class="row">
-                <article class="col-lg-3">
+                <article class="my-auto col-lg-3">
                     <div class="rounded-4 card mb-4">
                         <header class="card-body text-center">
-                            <h3 class="display-4">+30%</h3>
-                            <p class="card-text steambox-transparent-text">Aumento en la satisfacción del cliente a
-                                través del canales de chat ❤️ 👍</p>
+                            <h3 class="display-4 text-primary">+30%</h3>
+                            <p class="card-text steambox-transparent-text">Mejora la satisfacción del cliente a
+                                través del canales de chat ️✅ </p>
                         </header>
                     </div>
                 </article>
-                <article class="col-lg-3">
+                <article class="my-auto col-lg-3">
                     <div class="rounded-4 card mb-4">
                         <header class="card-body text-center">
-                            <h3 class="display-4">10x</h3>
+                            <h3 class="display-4 text-primary">10x</h3>
                             <p class="card-text steambox-transparent-text">Respuestas más rápidas a consultas de
-                                clientes potenciales.</p>
+                                clientes potenciales 🔝</p>
                         </header>
                     </div>
                 </article>
-                <article class="col-lg-3">
+                <article class="my-auto col-lg-3">
                     <div class="rounded-4 card mb-4">
                         <header class="card-body text-center">
-                            <h3 class="display-4">+1k</h3>
-                            <p class="card-text steambox-transparent-text">Miles de conversaciones automatizadas y
-                                personalizadas
-                                para tu equipo.</p>
+                            <h3 class="display-4 text-primary">+1k</h3>
+                            <p class="card-text steambox-transparent-text">Automatiza la derivación de leads y contactos
+                                de WhatsApp para tu
+                                equipo 🤖</p>
                         </header>
                     </div>
                 </article>
-                <article class="col-lg-3">
+                <article class="my-auto col-lg-3">
                     <div class="rounded-4 card mb-4">
                         <header class="card-body text-center">
-                            <h3 class="display-4">+20%</h3>
+                            <h3 class="display-4 text-primary">+20%</h3>
                             <p class="card-text steambox-transparent-text">Incrementa las retención de clientes por
-                                live chat y WhatsApp</p>
+                                live chat gratis o WhatsApp 👍</p>
                         </header>
                     </div>
                 </article>
@@ -275,215 +318,159 @@
         </div>
 
     </section>
+    <section data-note="Call-to-Action" id="cta" class="position-relative overflow-hidden">
+        <div class="pt-5"
+            style="background: url(assets/images/multiagente-background-2024.png);background-position: right;background-repeat: repeat;background-size: initial;">
+            <div class="row justify-content-center">
+                <h2 class="display-4 mb-3 fw-bolder mb-5 pt-5 mt-5  text-center col-lg-8 col-11 mx-auto">4 puntos clave
+                    para implementar <span class="text-primary">Steamboxchat</span></h2>
+                <div class="col-md-8">
+                    <div class="w-75 mx-auto"><img loading="lazy" class="mb-4 w-100"
+                            src="assets/images/alternativa-whatsapp.avif" alt="Steamboxchat clientes"></div>
+                    <ul class="gap-2 nav nav-tabs justify-content-center" id="myTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link text-center active" id="warningOne-tab" data-bs-toggle="tab"
+                                href="#warningOne" role="tab" aria-controls="warningOne" aria-selected="true"><span
+                                    class="badge bg-primary">1</span><span class="d-none  d-lg-block"></span> </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link text-center" id="warningTwo-tab" data-bs-toggle="tab" href="#warningTwo"
+                                role="tab" aria-controls="warningTwo" aria-selected="false"><span
+                                    class="badge bg-primary">2</span> <span class="d-none  d-lg-block"> </span> </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link text-center" id="warningThree-tab" data-bs-toggle="tab"
+                                href="#warningThree" role="tab" aria-controls="warningThree" aria-selected="false"><span
+                                    class="badge bg-primary">3</span> <span class="d-none  d-lg-block"> </span> </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link text-center" id="warningFour-tab" data-bs-toggle="tab"
+                                href="#warningFour" role="tab" aria-controls="warningFour" aria-selected="false"><span
+                                    class="badge bg-primary">4</span><span class="d-none  d-lg-block"> </span> </a>
+                        </li>
 
-    <section data-note="Call-to-Action" id="cta" class="bg-light position-relative py-5 mt-5 overflow-hidden">
-        <div class="mt-5 pt-5">
-            <div class="container">
-                <h2 class="display-5 text-center">¿Listo para impulsar tu negocio en WhatsApp?</h2>
+                    </ul>
+                    <div class="tab-content" id="myTabsContent">
+                        <div class="tab-pane fade  show active" id="warningOne" role="tabpanel"
+                            aria-labelledby="warningThree-tab">
+                            <div class="p-5 rounded-4 mb-5" role="alert">
 
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <p class="lead mt-3">
-                            Aunque todo parezca ir bien, es importante prever ya que la atención al cliente es clave;
-                            cada
-                            mensaje sin respuesta o respuesta automática podría significar una oportunidad perdida. Por
-                            ello, te comparto algunas consideraciones.
-                        </p>
-                    </div>
-                </div>
+                                <i class="fas fa-exclamation-circle"></i>
+                                <strong>¿Necesitas seguridad y estabilidad?</strong> Con Steamboxchat, garantizamos la
+                                seguridad de tus datos al permitir que cada cliente almacene su propia información.
+                                Además, nuestro servicio funciona las 24 horas del día, los 7 días de la semana, sin
+                                interrupciones, para que puedas enfocarte en tus clientes sin preocuparte por problemas
+                                técnicos.
 
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <ul class="gap-2 nav nav-tabs justify-content-center" id="myTabs" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link text-center active" id="warningOne-tab" data-bs-toggle="tab"
-                                    href="#warningOne" role="tab" aria-controls="warningOne" aria-selected="true"><span
-                                        class="badge rounded-circle bg-danger">1</span><span
-                                        class="d-none  d-lg-block">Consideración</span> </a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link text-center" id="warningTwo-tab" data-bs-toggle="tab"
-                                    href="#warningTwo" role="tab" aria-controls="warningTwo" aria-selected="false"><span
-                                        class="badge rounded-circle bg-danger">2</span> <span
-                                        class="d-none  d-lg-block">Consideración</span> </a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link text-center" id="warningThree-tab" data-bs-toggle="tab"
-                                    href="#warningThree" role="tab" aria-controls="warningThree"
-                                    aria-selected="false"><span class="badge rounded-circle bg-danger">3</span> <span
-                                        class="d-none  d-lg-block">Consideración</span> </a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link text-center" id="warningFour-tab" data-bs-toggle="tab"
-                                    href="#warningFour" role="tab" aria-controls="warningFour"
-                                    aria-selected="false"><span class="badge rounded-circle bg-danger">4</span><span
-                                        class="d-none  d-lg-block">Consideración</span> </a>
-                            </li>
-
-                        </ul>
-                        <div class="tab-content" id="myTabsContent">
-                            <div class="tab-pane fade show active" id="warningOne" role="tabpanel"
-                                aria-labelledby="warningOne-tab">
-                                <div class="alert alert-light p-5 mt-3 rounded-4" role="alert">
-                                    <i class="fas fa-exclamation-circle"></i>
-                                    <strong>Optimiza la colaboración:</strong> En entornos con múltiples agentes, la
-                                    falta de coordinación puede costarte clientes. ¿Estás seguro de que tus equipos
-                                    están hablando lo suficiente con los clientes para impulsar tus ventas?
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="warningFour" role="tabpanel"
-                                aria-labelledby="warningFour-tab">
-                                <div class="alert alert-light p-5 mt-3 rounded-4" role="alert">
-                                    <i class="fas fa-exclamation-circle"></i>
-                                    <strong>Superando malas experiencias:</strong> La automatización es importante, pero
-                                    ¿has tenido malas experiencias con chatbots que responden de manera inadecuada?
-                                    Nuestro sistema multiagente asegura respuestas precisas y humanas, mejorando la
-                                    experiencia del cliente sin sacrificar la calidad.
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="warningTwo" role="tabpanel" aria-labelledby="warningTwo-tab">
-                                <div class="alert alert-light p-5 mt-3 rounded-4" role="alert">
-                                    <i class="fas fa-exclamation-circle"></i>
-                                    <strong>Organización sin fisuras:</strong> Con el crecimiento, la organización es la
-                                    clave del éxito. ¿Estás perdiendo oportunidades de ventas por una gestión
-                                    ineficiente de tus mensajes en WhatsApp?
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="warningThree" role="tabpanel"
-                                aria-labelledby="warningThree-tab">
-                                <div class="alert alert-light p-5 mt-3 rounded-4" role="alert">
-                                    <i class="fas fa-exclamation-circle"></i>
-                                    <strong>Destaca en el mercado:</strong> En un mundo digital en constante cambio,
-                                    ¿cómo te destacarás frente a tus competidores? Steambox te ofrece una solución
-                                    integral para WhatsApp, sin perder tu número y sin sorpresas en los costos.
-                                </div>
                             </div>
                         </div>
 
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            <button class="btn py-3 px-4 btn-primary btn-lg m-2 rounded-4" data-bs-toggle="popover"
-                                title="Agendar Reunión" data-bs-content="Haz clic para agendar una reunión"
-                                onclick="Calendly.initPopupWidget({url: 'https://calendly.com/steamboxdev/steamboxdev?hide_event_type_details=1&amp;hide_gdpr_banner=1'});return false;">Asesoría
-                                gratuita</button>
-                            <button type="button" data-bs-toggle="modal"
-                                class="btn py-3 px-4 btn-light border btn-lg m-2 rounded-4"
-                                data-bs-target="#registrationModal">Probar Ahora</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="mt-5 text-center">
-            <p class="col-10 card-text col-md-6 col-xl-6 col-sm-10 mx-auto steambox-transparent-text">Steamboxchat
-                está
-                disponible en
-                todo LatAm
-                para ofrecerte atención humana y soporte en tu horario local
-                <span id="realTimeDate" class="fw-bold small"></span>.</span>
 
-            </p>
-            <div class="mx-5">
-                <span id="uruguay" class="country-flag" style="cursor:pointer" title="Uruguay">🇺🇾</span> |
-                <span id="ecuador" class="country-flag" style="cursor:pointer" title="Ecuador">🇪🇨</span> |
-                <span id="latam" class="country-flag" style="cursor:pointer" title="Bolivia">🇧🇴</span> |
-                <span id="mexico" class="country-flag" style="cursor:pointer" title="Mexico">🇲🇽</span> |
-                <span id="colombia" class="country-flag" style="cursor:pointer" title="Colombia">🇨🇴</span> |
-                <span id="do" class="country-flag" style="cursor:pointer" title="Dominican Republic">🇩🇴</span> |
-                <span id="guatemala" class="country-flag" style="cursor:pointer" title="Guatemala">🇬🇹</span> |
-                <span id="panama" class="country-flag" style="cursor:pointer" title="Panama">🇵🇦</span> |
-                <span id="nicaragua" class="country-flag" style="cursor:pointer" title="Nicaragua">🇳🇮</span> |
-                <span id="honduras" class="country-flag" style="cursor:pointer" title="Honduras">🇭🇳</span> |
-                <span id="elsalvador" class="country-flag" style="cursor:pointer" title="El Salvador">🇸🇻</span> |
-                <span id="chile" class="country-flag" style="cursor:pointer" title="Chile">🇨🇱</span> |
-                <span id="costarica" class="country-flag" style="cursor:pointer" title="Costa Rica">🇨🇷</span> |
-                <span id="puertorico" class="country-flag" style="cursor:pointer" title="Puerto Rico">🇵🇷</span>
+                        <div class="tab-pane fade" id="warningTwo" role="tabpanel" aria-labelledby="warningTwo-tab">
+                            <div class="p-5 rounded-4" role="alert">
+
+                                <i class="fas fa-exclamation-circle"></i>
+                                <strong>Organización eficiente:</strong> En un entorno empresarial en expansión, manejar
+                                varios números de WhatsApp puede causar pérdida de ventas y deteriorar la relación con
+                                el cliente. Mientras que Steamboxchat ofrece una solución a este desafío, ¿Consideras
+                                probarlo o lo estás manejando eficientemente?
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="warningThree" role="tabpanel" aria-labelledby="warningFour-tab">
+                            <div class="p-5 rounded-4" role="alert">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <strong>Recupera la confianza de tus clientes:</strong> La mala implementación debido a
+                                la falta de entrenamiento de chatbots, combinada con errores frecuentes, suele dañar la
+                                confianza cuando un negocio está creciendo. Steamboxchat ofrece una solución con
+                                respuestas precisas y humanas para restaurar esa confianza y mantener la calidad del
+                                servicio.
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="warningFour" role="tabpanel" aria-labelledby="warningOne-tab">
+                            <div class="p-5 rounded-4" role="alert">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <strong>Optimiza la colaboración:</strong> En entornos con múltiples agentes, la
+                                falta de coordinación puede costarte clientes. ¿Estás seguro de que tus equipos
+                                están hablando lo suficiente con los clientes para impulsar tus ventas?
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
             </div>
+
         </div>
+
     </section>
+
+
 
     <!-- Modal -->
-    <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel"
+
+
+    <div class="modal fade " id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-md rounded-4">
             <div class="modal-content rounded-4">
                 <div class="border-0 modal-header">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-card p-3 pt-0">
-                    <h5 class="modal-title display-4 text-center" id="registrationModalLabel">Registrate gratis</h5>
-                    <!-- Registration Form -->
-                    <form action="05b5e20f259a93e1a6f25d8bde43e422b0e5615d1d.php" class="m-3" method="post">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="business" name="business"
-                                placeholder="Ingresa el nombre de tu negocio" required>
-                            <label for="business" class="form-label">Nombre del negocio</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="name" name="name"
-                                placeholder="Ingresa tu nombre" required oninput="updateNameDisplay()">
-                            <label for="name" class="form-label">Nombre</label>
-                        </div>
+                <div class="modal-card text-center  p-3 pt-0">
+                    <h5 class="modal-title  display-4 text-center" id="registrationModalLabel"> Registrate gratis</h5>
 
-                        <div class="form-floating mb-3">
-                            <select class="form-select rounded-3" id="country" name="country" required>
-                                <option value="" disabled selected>Selecciona tu país</option>
-                                <option value="AR">Argentina</option>
-                                <option value="BO">Bolivia</option>
-                                <option value="BR">Brasil</option>
-                                <option value="CL">Chile</option>
-                                <option value="CO">Colombia</option>
-                                <option value="CR">Costa Rica</option>
-                                <option value="DO">República Dominicana</option>
-                                <option value="EC">Ecuador</option>
-                                <option value="SV">El Salvador</option>
-                                <option value="GT">Guatemala</option>
-                                <option value="HN">Honduras</option>
-                                <option value="MX">México</option>
-                                <option value="NI">Nicaragua</option>
-                                <option value="PA">Panamá</option>
-                                <option value="PY">Paraguay</option>
-                                <option value="PE">Perú</option>
-                                <option value="PR">Puerto Rico</option>
-                                <option value="ES">España</option>
-                                <option value="US">Estados Unidos</option>
-                                <option value="UY">Uruguay</option>
-                                <option value="VE">Venezuela</option>
-                            </select>
-                            <label for="country" class="form-label">País</label>
+                    <p class="col-9 mx-auto text-center">Potencia tu equipo y reduce costos sin afectar la experiencia
+                        del cliente por WhatsApp!</p>
+                    <div class="col-10 mx-auto text-center form-floating mb-3">
+                        <small><br> <a class="btn btn-success btn-lg rounded-pill" href="https://wa.steamboxchat.com/"
+                                target="_blank"><i class="bi bi-whatsapp"></i> Continuar por WhatsApp</a>
+                            <br><br></small>
+                    </div>
 
-                        </div>
-
-
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="whatsapp" name="whatsapp"
-                                pattern="[0-9]{13,}" title="Usa el formato WhatsApp: +1234567890" required>
-                            <label for="whatsapp" class="form-label">Numero de contacto WhatsApp</label>
-
-                        </div>
-
-                        <button type="submit"
-                            class="btn btn-primary btn-lg w-100 py-3 mb-2 rounded-4">Registrarse</button>
-                        <div class="form-floating mb-3">
-                            <small class="text-muted">*Hola <span id="getName"></span> Al registarte puedes integrar
-                                hasta 15 agentes en tu mismo número. </small>
-
-                        </div>
-                    </form>
-                    <!-- End Registration Form -->
                 </div>
             </div>
         </div>
     </div>
-    <footer class="bg-black text-light text-center pt-3 pb-4">
-        <div class="mx-5 mt-2">
-            <span class="text-light small">Steamboxchat ofrece conexión de API para WhatsApp - Multiagente listo para
-                probar gratis
-                <span class="text-light">&copy; 2023 steamboxchat Messaging Platform</span>
 
+    <script>
+        function submitForm() {
+            // Construct the WhatsApp message with just the number "1"
+            const message = "1";
+
+            // Construct the WhatsApp message link
+            const whatsappLink = `https://wa.me/13028035360?text=${encodeURIComponent(message)}`;
+
+            // Open the WhatsApp link in a new window
+            window.open(whatsappLink);
+        }
+    </script>
+
+
+
+
+    <footer>
+        <div class="py-3 text-bg-dark d-flex flex-wrap justify-content-center">
+            <p class="col-lg-7 col-sm-11 px-3 col-md-8 my-0 smallest-text">Hecho con ❤️ por Steambochat. Esta aplicación
+                se basa en APIs e información pública de OpenAI, Zapier, WhatsApp, Twitter, Google y esta lista para
+                usar acorde a todos los requerimientos y regulaciones en cada país. </p>
+        </div>
+        <div class="my-3 d-flex justify-content-center flex-wrap text-center"><span><a class="px-2 text-info nav-link"
+                    title="twitter steamboxchat" href="https://twitter.com/atsteamboxchat" target="_blank"
+                    rel="noopener"><i class="smallest-text bi bi-twitter me-1"></i></a></span><span><a
+                    class="px-2 nav-link text-danger" title="youtube steamboxchat"
+                    href="https://www.youtube.com/@steamboxchat" target="_blank" rel="noopener"><i
+                        class="smallest-text bi bi-youtube me-1"></i></a></span><span><a
+                    class="px-2 nav-link text-secondary" title="tiktok steamboxchat"
+                    href="https://www.tiktok.com/@steamboxchat.com" target="_blank" rel="noopener"><i
+                        class="smallest-text bi bi-tiktok me-1"></i></a></span><span><a
+                    class="nav-link px-2 text-primary" title="linkedin steamboxchat"
+                    href="https://linkedin.com/company/steamboxchat" target="_blank" rel="noopener"><i
+                        class="smallest-text bi bi-linkedin me-1"></i></a></span>
+            <p class="my-0 py-1 btn mb-0 smallest-text"> Steamboxchat ©2024</p>
         </div>
     </footer>
 
@@ -503,31 +490,25 @@
             </div>
         </div>
     </div>
-    </div>
     <script>
-        function updateRealTimeDate() {
-            let now = new Date();
-            let options = {
-                hour: "numeric",
-                minute: "numeric",
-                timeZoneName: "short",
-            };
-            let formattedDate = now.toLocaleTimeString("en-US", options);
-            document.getElementById("realTimeDate").textContent = formattedDate;
+
+        function checkUrlParameters() {
+            const urlParams = new URLSearchParams(window.location.hash.substring(1));
+            const modalParam = urlParams.get('modal');
+            if (modalParam === 'registrationModal') {
+                $('#registrationModal').modal('show');
+            }
         }
 
-        setInterval(updateRealTimeDate, 1000);
+        $(document).ready(function () {
+            checkUrlParameters();
+        });
 
-        function updateNameDisplay() {
-            let enteredName = document.getElementById("name").value + ",";
-            document.getElementById("getName").textContent = enteredName;
-        }
 
-        updateRealTimeDate();
+
+
     </script>
-    <link href="assets/script.js">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
